@@ -1,8 +1,9 @@
+import NavBar from '@/components/NavBar'
 import React from 'react'
 
 function baseboard() {
   return (
-    <div>baseboard</div>
+    <NavBar />
   )
 }
 

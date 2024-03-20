@@ -1,7 +1,11 @@
-import NavBar from '@/components/NavBar';
 import ChromeIcon from '@/components/icons/ChromeIcon';
 import GithubIcon from '@/components/icons/GithubIcon';
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
+ 
+const NavBar = dynamic(() => import('@/components/NavBar'), {
+  ssr: false
+})
 
 export default function Home() {
   return (
