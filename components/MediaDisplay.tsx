@@ -30,12 +30,17 @@ function extractMIME(contentType: string): ContentTypeSplit {
 export interface MediaData {
     contentType: string;
     content: string;
+    note?: string;
 }
 //TODO save notes to node data
 function MediaDisplay({ data }: { data: MediaData }) {
     const [componentToRender, setComponentToRender] = useState<JSX.Element | null>(null);
-    const editor = useCreateBlockNote();
-
+    const editor = useCreateBlockNote({
+        initialContent: data.note ? JSON.parse(data.note) : [{
+            type: "paragraph",
+            content: "Add your note here :)"
+        }]
+    });
     useEffect(() => {
         const { primaryType, subType } = extractMIME(data.contentType)
         switch (primaryType) {
@@ -114,9 +119,9 @@ function MediaDisplay({ data }: { data: MediaData }) {
                 <div className="rounded-lg nopan nodrag nowheel">
                     {componentToRender}
                 </div>
-                <div className="card-body px-0">
+                <div className="card-body px-4">
                     <span className="label-text text-left">Notes</span>
-                    <BlockNoteView editor={editor} className="w-full text-left nodrag" theme={lightDefaultTheme} />;
+                    <BlockNoteView editable={false} editor={editor} className="w-full text-left nodrag" theme={lightDefaultTheme} />;
                 </div>
             </div>
         </>

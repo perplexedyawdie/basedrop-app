@@ -17,7 +17,7 @@ function AuthenticatedDropdown() {
                     </a>
                 </li>
                 {/* <li><a>Settings</a></li> */}
-                <li><a onClick={(e) => signOut()}>Logout</a></li>
+                <li><a onClick={(e) => signOut({ redirect: "/"})}>Logout</a></li>
             </ul>
         </>
     )
