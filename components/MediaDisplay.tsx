@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
 import { Handle, Position } from 'reactflow';
 import { MetaTags, urlPreviewData } from '../utils/gmeta';
