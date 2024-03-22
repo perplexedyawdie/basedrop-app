@@ -37,7 +37,7 @@ Build & run the container
 docker compose up -d
 ```
 
-It will be available at [http://localhost:3000](htpp://localhost:3000)
+It will be available at [http://localhost:3773](htpp://localhost:3000)
 
 ### Local Development
 
